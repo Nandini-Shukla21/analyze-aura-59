@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { FileUpload } from "@/components/ui/file-upload";
 import { GlassCard } from "@/components/ui/glass-card";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/ui/header";
+import { Footer } from "@/components/ui/footer";
 import { Brain, Zap, Target, FileSearch } from "lucide-react";
 import apiService from "@/services/api";
 
@@ -51,8 +53,11 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen p-4 md:p-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen">
+      <Header />
+      
+      <div className="px-4 md:px-8 pt-8">
+        <div className="max-w-6xl mx-auto">
         {/* Hero Section */}
         <motion.div
           className="text-center mb-16"
@@ -120,7 +125,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
             >
-              <GlassCard className="h-full text-center">
+              <GlassCard className="h-full text-center hover:scale-105 transition-transform duration-300 cursor-pointer">
                 <div className="text-primary mb-4 flex justify-center">
                   {feature.icon}
                 </div>
@@ -148,12 +153,16 @@ const Home = () => {
             <Button 
               className="btn-glass text-white border-white/30 hover:bg-white/20"
               size="lg"
+              onClick={() => navigate('/auth')}
             >
               Get Started Free
             </Button>
           </GlassCard>
         </motion.div>
+        </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
