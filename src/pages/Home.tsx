@@ -53,7 +53,8 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <div className="home-background" />
       <Header />
       
       <div className="px-4 md:px-8 pt-8">
@@ -125,7 +126,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 * index }}
             >
-              <GlassCard className="h-full text-center hover:scale-105 transition-transform duration-300 cursor-pointer">
+              <GlassCard className="h-full text-center feature-card cursor-pointer">
                 <div className="text-primary mb-4 flex justify-center">
                   {feature.icon}
                 </div>

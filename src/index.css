@@ -90,10 +90,10 @@ All colors MUST be HSL. Dark mode like Skitbit, Light mode like Wavelength, Dash
   :root:not(.dark) {
     --background: 240 100% 98%;
     --foreground: 270 15% 15%;
-    --card: 240 50% 96%;
+    --card: 255 100% 100%;
     --card-foreground: 270 15% 15%;
-    --glass: 240 60% 94%;
-    --glass-border: 240 40% 85%;
+    --glass: 255 100% 100%;
+    --glass-border: 240 30% 90%;
     --popover: 240 50% 96%;
     --popover-foreground: 270 15% 15%;
     
@@ -134,8 +134,8 @@ All colors MUST be HSL. Dark mode like Skitbit, Light mode like Wavelength, Dash
     --gradient-dashboard: linear-gradient(135deg, hsl(210 60% 5%), hsl(220 50% 8%));
     
     /* Glassmorphism Effects */
-    --glass-bg: hsl(240 60% 94% / 0.4);
-    --glass-border: hsl(240 40% 85% / 0.3);
+    --glass-bg: hsl(255 100% 100% / 0.6);
+    --glass-border: hsl(240 30% 90% / 0.5);
     --glass-shadow: 0 8px 32px hsl(250 100% 65% / 0.1);
     --glass-shadow-lg: 0 20px 60px hsl(250 100% 65% / 0.15);
   }
@@ -210,11 +210,23 @@ All colors MUST be HSL. Dark mode like Skitbit, Light mode like Wavelength, Dash
   .glass-card {
     @apply backdrop-blur-xl bg-glass border border-glass-border rounded-2xl;
     box-shadow: var(--glass-shadow);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--glass-shadow-lg);
   }
 
   .glass-card-lg {
     @apply backdrop-blur-xl bg-glass border border-glass-border rounded-3xl;
     box-shadow: var(--glass-shadow-lg);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card-lg:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 80px hsl(var(--primary) / 0.25);
   }
 
   /* Glass Button Variants */
@@ -299,5 +311,92 @@ All colors MUST be HSL. Dark mode like Skitbit, Light mode like Wavelength, Dash
     --card: var(--dashboard-card);
     --primary: var(--dashboard-primary);
     --accent: var(--dashboard-accent);
+  }
+
+  /* Moving background for home page */
+  .home-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .home-background::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--secondary) / 0.1) 0%, transparent 50%);
+    animation: floatBackground 20s ease-in-out infinite;
+  }
+
+  .home-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(45deg, transparent 40%, hsl(var(--primary) / 0.03) 50%, transparent 60%),
+      linear-gradient(-45deg, transparent 40%, hsl(var(--accent) / 0.02) 50%, transparent 60%);
+    animation: movePattern 25s linear infinite;
+  }
+
+  @keyframes floatBackground {
+    0%, 100% {
+      transform: translate(0px, 0px) rotate(0deg) scale(1);
+    }
+    33% {
+      transform: translate(30px, -30px) rotate(120deg) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) rotate(240deg) scale(0.9);
+    }
+  }
+
+  @keyframes movePattern {
+    0% {
+      transform: translateX(-100%) translateY(-100%);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%);
+    }
+  }
+
+  /* Enhanced card animations */
+  .feature-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.1), transparent);
+    transition: left 0.6s ease;
+  }
+
+  .feature-card:hover::before {
+    left: 100%;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 15px 40px hsl(var(--primary) / 0.2);
   }
 }
