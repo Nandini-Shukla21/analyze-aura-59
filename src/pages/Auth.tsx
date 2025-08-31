@@ -31,10 +31,56 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div 
+      className="min-h-screen relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, hsl(250 100% 98% / 0.95), hsl(280 60% 95% / 0.9))'
+      }}
+    >
+      {/* Floating Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute -top-40 -left-40 w-80 h-80 rounded-full bg-gradient-to-br from-primary/20 to-accent/10"
+          animate={{
+            y: [0, 30, 0],
+            x: [0, 20, 0],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-gradient-to-br from-secondary/15 to-accent/20"
+          animate={{
+            y: [0, -25, 0],
+            x: [0, -15, 0],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        <motion.div
+          className="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-gradient-to-br from-accent/10 to-primary/15"
+          animate={{
+            scale: [1, 1.1, 1],
+            rotate: [0, 180, 360],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+      </div>
+
       <Header />
       
-      <div className="min-h-screen flex items-center justify-center p-4 pt-24">
+      <div className="min-h-screen flex items-center justify-center p-4 pt-24 relative z-10">
         <div className="max-w-md w-full">
           {/* Back Button */}
           <motion.div
@@ -46,7 +92,7 @@ const Auth = () => {
             <Button
               variant="ghost"
               onClick={() => navigate('/')}
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground backdrop-blur-sm bg-glass/30 border border-glass-border/50"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Home

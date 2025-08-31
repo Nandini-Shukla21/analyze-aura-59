@@ -2,118 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
-/* AI Resume Analyzer Design System - Glassmorphism Theme
-All colors MUST be HSL. Designed for modern, professional analytics interface.
+/* AI Resume Analyzer Design System - Inspired by modern tech UIs
+All colors MUST be HSL. Dark mode like Skitbit, Light mode like Wavelength, Dashboard like Nexus OS.
 */
 
 @layer base {
   :root {
-    /* Base Colors - Deep tech gradient palette */
-    --background: 221 83% 8%;
-    --foreground: 220 20% 95%;
+    /* Translucent Header - Same for both themes */
+    --header-bg: hsl(220 30% 10% / 0.3);
+    --header-border: hsl(220 40% 30% / 0.2);
   }
 
   .dark {
-    /* Base Colors - Deep tech gradient palette */
-    --background: 221 83% 8%;
-    --foreground: 220 20% 95%;
+    /* Dark Mode - Skitbit inspired (Deep purple/black with green accents) */
+    --background: 270 100% 2%;
+    --foreground: 0 0% 95%;
 
     /* Glassmorphism Cards */
-    --card: 220 20% 12%;
-    --card-foreground: 220 15% 92%;
-    --glass: 220 30% 15%;
-    --glass-border: 220 40% 25%;
+    --card: 270 30% 8%;
+    --card-foreground: 0 0% 92%;
+    --glass: 270 40% 10%;
+    --glass-border: 270 30% 20%;
 
     /* Interactive Elements */
-    --popover: 220 25% 10%;
-    --popover-foreground: 220 15% 92%;
+    --popover: 270 25% 6%;
+    --popover-foreground: 0 0% 92%;
 
-    /* Brand Colors - AI/Tech focused */
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 20% 98%;
-    --primary-glow: 217 91% 70%;
+    /* Brand Colors - Purple/Green theme like Skitbit */
+    --primary: 270 100% 70%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 270 100% 80%;
 
-    /* Accent Colors */
-    --secondary: 270 60% 45%;
-    --secondary-foreground: 220 20% 98%;
-    --accent: 180 70% 50%;
-    --accent-foreground: 220 20% 98%;
+    /* Accent Colors - Green highlights */
+    --secondary: 120 100% 50%;
+    --secondary-foreground: 270 100% 5%;
+    --accent: 300 100% 60%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Dashboard specific - Nexus OS inspired (Dark blue/teal) */
+    --dashboard-bg: 210 60% 5%;
+    --dashboard-card: 210 40% 8%;
+    --dashboard-primary: 180 100% 50%;
+    --dashboard-accent: 190 100% 60%;
 
     /* Status Colors */
-    --success: 142 70% 45%;
-    --success-foreground: 220 20% 98%;
+    --success: 120 100% 50%;
+    --success-foreground: 0 0% 98%;
     --warning: 43 96% 56%;
-    --warning-foreground: 220 20% 15%;
+    --warning-foreground: 270 100% 5%;
     --destructive: 0 84% 60%;
-    --destructive-foreground: 220 20% 98%;
+    --destructive-foreground: 0 0% 98%;
 
     /* Neutral Tones */
-    --muted: 220 25% 18%;
-    --muted-foreground: 220 15% 65%;
-    --border: 220 40% 20%;
-    --input: 220 25% 18%;
-    --ring: 217 91% 60%;
+    --muted: 270 20% 15%;
+    --muted-foreground: 270 10% 60%;
+    --border: 270 30% 18%;
+    --input: 270 25% 12%;
+    --ring: 270 100% 70%;
 
     /* Design System Variables */
     --radius: 1rem;
 
-    /* Gradients for Glassmorphism */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60% / 0.8), hsl(270 60% 45% / 0.6));
-    --gradient-secondary: linear-gradient(135deg, hsl(180 70% 50% / 0.7), hsl(217 91% 60% / 0.5));
-    --gradient-background: linear-gradient(135deg, hsl(221 83% 8%), hsl(230 60% 12%));
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 100% 70% / 0.8), hsl(300 100% 60% / 0.6));
+    --gradient-secondary: linear-gradient(135deg, hsl(120 100% 50% / 0.7), hsl(180 100% 50% / 0.5));
+    --gradient-background: linear-gradient(135deg, hsl(270 100% 2%), hsl(280 60% 8%));
+    --gradient-dashboard: linear-gradient(135deg, hsl(210 60% 5%), hsl(220 50% 8%));
     
     /* Glassmorphism Effects */
-    --glass-bg: hsl(220 30% 15% / 0.4);
-    --glass-border: hsl(220 40% 25% / 0.3);
-    --glass-shadow: 0 8px 32px hsl(217 91% 60% / 0.1);
-    --glass-shadow-lg: 0 20px 60px hsl(217 91% 60% / 0.15);
+    --glass-bg: hsl(270 40% 10% / 0.4);
+    --glass-border: hsl(270 30% 20% / 0.3);
+    --glass-shadow: 0 8px 32px hsl(270 100% 70% / 0.15);
+    --glass-shadow-lg: 0 20px 60px hsl(270 100% 70% / 0.2);
 
-    /* Sidebar (keep existing values for compatibility) */
-    --sidebar-background: 220 25% 10%;
-    --sidebar-foreground: 220 15% 92%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 220 20% 98%;
-    --sidebar-accent: 220 25% 18%;
-    --sidebar-accent-foreground: 220 15% 92%;
-    --sidebar-border: 220 40% 20%;
-    --sidebar-ring: 217 91% 60%;
+    /* Sidebar */
+    --sidebar-background: 270 25% 6%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 270 100% 70%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 270 20% 15%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 270 30% 18%;
+    --sidebar-ring: 270 100% 70%;
   }
 
-  /* Light mode theme */
+  /* Light mode theme - Wavelength inspired (Purple/blue gradients) */
   :root:not(.dark) {
-    --background: 0 0% 98%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --glass: 0 0% 95%;
-    --glass-border: 240 5.9% 90%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 217 91% 60%;
+    --background: 240 100% 98%;
+    --foreground: 270 15% 15%;
+    --card: 240 50% 96%;
+    --card-foreground: 270 15% 15%;
+    --glass: 240 60% 94%;
+    --glass-border: 240 40% 85%;
+    --popover: 240 50% 96%;
+    --popover-foreground: 270 15% 15%;
+    
+    /* Brand Colors - Blue/Purple gradients */
+    --primary: 250 100% 65%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 217 91% 70%;
-    --secondary: 270 60% 45%;
+    --primary-glow: 250 100% 75%;
+    --secondary: 280 60% 70%;
     --secondary-foreground: 0 0% 98%;
-    --accent: 180 70% 50%;
+    --accent: 200 100% 60%;
     --accent-foreground: 0 0% 98%;
+    
+    /* Dashboard - Keep dark theme for dashboard even in light mode */
+    --dashboard-bg: 210 60% 5%;
+    --dashboard-card: 210 40% 8%;
+    --dashboard-primary: 180 100% 50%;
+    --dashboard-accent: 190 100% 60%;
+    
+    /* Status Colors */
     --success: 142 70% 45%;
     --success-foreground: 0 0% 98%;
     --warning: 43 96% 56%;
-    --warning-foreground: 240 10% 3.9%;
+    --warning-foreground: 270 15% 15%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 217 91% 60%;
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60% / 0.8), hsl(270 60% 45% / 0.6));
-    --gradient-secondary: linear-gradient(135deg, hsl(180 70% 50% / 0.7), hsl(217 91% 60% / 0.5));
-    --gradient-background: linear-gradient(135deg, hsl(0 0% 98%), hsl(240 5% 96%));
-    --glass-bg: hsl(0 0% 95% / 0.4);
-    --glass-border: hsl(240 5.9% 90% / 0.3);
-    --glass-shadow: 0 8px 32px hsl(217 91% 60% / 0.1);
-    --glass-shadow-lg: 0 20px 60px hsl(217 91% 60% / 0.15);
+    
+    /* Neutral Tones */
+    --muted: 240 20% 90%;
+    --muted-foreground: 240 10% 50%;
+    --border: 240 20% 85%;
+    --input: 240 20% 90%;
+    --ring: 250 100% 65%;
+    
+    /* Gradients - Light purple/blue theme */
+    --gradient-primary: linear-gradient(135deg, hsl(250 100% 65% / 0.8), hsl(280 60% 70% / 0.6));
+    --gradient-secondary: linear-gradient(135deg, hsl(200 100% 60% / 0.7), hsl(250 100% 65% / 0.5));
+    --gradient-background: linear-gradient(135deg, hsl(240 100% 98%), hsl(250 60% 95%));
+    --gradient-dashboard: linear-gradient(135deg, hsl(210 60% 5%), hsl(220 50% 8%));
+    
+    /* Glassmorphism Effects */
+    --glass-bg: hsl(240 60% 94% / 0.4);
+    --glass-border: hsl(240 40% 85% / 0.3);
+    --glass-shadow: 0 8px 32px hsl(250 100% 65% / 0.1);
+    --glass-shadow-lg: 0 20px 60px hsl(250 100% 65% / 0.15);
   }
 }
 
@@ -126,6 +150,58 @@ All colors MUST be HSL. Designed for modern, professional analytics interface.
     @apply bg-background text-foreground;
     background: var(--gradient-background);
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Animated Background Elements */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 25% 25%, hsl(var(--primary) / 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 75% 75%, hsl(var(--accent) / 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 10%, hsl(var(--secondary) / 0.06) 0%, transparent 50%);
+    animation: backgroundMove 20s ease-in-out infinite;
+    z-index: -1;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      linear-gradient(45deg, transparent 48%, hsl(var(--primary) / 0.03) 50%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, hsl(var(--accent) / 0.02) 50%, transparent 52%);
+    animation: patternMove 15s linear infinite;
+    z-index: -1;
+  }
+
+  @keyframes backgroundMove {
+    0%, 100% {
+      transform: translate(-10px, -10px) rotate(0deg);
+    }
+    33% {
+      transform: translate(10px, -20px) rotate(120deg);
+    }
+    66% {
+      transform: translate(-20px, 10px) rotate(240deg);
+    }
+  }
+
+  @keyframes patternMove {
+    0% {
+      background-position: 0% 0%, 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%, -100% -100%;
+    }
   }
 }
 
@@ -176,7 +252,52 @@ All colors MUST be HSL. Designed for modern, professional analytics interface.
   }
 
   @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 0 20px hsl(217 91% 60% / 0.3); }
-    50% { box-shadow: 0 0 40px hsl(217 91% 60% / 0.6); }
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+  }
+
+  /* Floating particles animation */
+  .floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 50%;
+    animation: floatParticle 20s linear infinite;
+  }
+
+  @keyframes floatParticle {
+    0% {
+      transform: translateY(100vh) translateX(0px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100px) translateX(100px);
+      opacity: 0;
+    }
+  }
+
+  /* Dashboard specific styles */
+  .dashboard-theme {
+    --background: var(--dashboard-bg);
+    --card: var(--dashboard-card);
+    --primary: var(--dashboard-primary);
+    --accent: var(--dashboard-accent);
   }
 }

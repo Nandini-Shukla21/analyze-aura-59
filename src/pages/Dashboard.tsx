@@ -54,7 +54,12 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div 
+      className="min-h-screen"
+      style={{
+        background: 'var(--gradient-dashboard)'
+      }}
+    >
       <Header />
       
       <div className="p-4 md:p-8 pt-24">
@@ -69,7 +74,12 @@ const Dashboard = () => {
             <Button
               onClick={() => navigate('/')}
               variant="ghost"
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground mb-6"
+              className="flex items-center gap-2 mb-6 border"
+              style={{
+                backgroundColor: 'var(--dashboard-card)',
+                color: 'hsl(var(--dashboard-primary))',
+                borderColor: 'hsl(var(--dashboard-primary) / 0.2)'
+              }}
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Home
